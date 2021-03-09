@@ -140,7 +140,7 @@ export class SkyboxNode extends Node {
 
     let material = new SkyboxMaterial();
     material.image.texture = new UrlTexture(this._url);
-    
+   
     switch (this._displayMode) {
       case 'mono':
         material.texCoordScaleOffset.value = [1.0, 1.0, 0.0, 0.0,
