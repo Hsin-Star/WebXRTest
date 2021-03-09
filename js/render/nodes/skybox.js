@@ -26,6 +26,7 @@ import {Material, RENDER_ORDER} from '../core/material.js';
 import {Primitive, PrimitiveAttribute} from '../core/primitive.js';
 import {Node} from '../core/node.js';
 import {UrlTexture} from '../core/texture.js';
+import {VideoTexture} from '../core/texture.js';
 
 const GL = WebGLRenderingContext; // For enums
 
@@ -139,8 +140,9 @@ export class SkyboxNode extends Node {
     primitive.setIndexBuffer(indexBuffer);
 
     let material = new SkyboxMaterial();
-    material.image.texture = new UrlTexture(this._url);
-
+    //material.image.texture = new UrlTexture(this._url);
+    material.image.texture = new VideoTexture(this._url);
+    
     switch (this._displayMode) {
       case 'mono':
         material.texCoordScaleOffset.value = [1.0, 1.0, 0.0, 0.0,
